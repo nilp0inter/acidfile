@@ -6,6 +6,12 @@
 News
 ====
 
+1.0.0
+-----
+
+* First stable release.
++ Documentation.
+
 0.0.1
 -----
 

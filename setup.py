@@ -32,7 +32,7 @@ setup(name='acidfile',
     zip_safe=False,
     install_requires=install_requires,
     entry_points={
-        'console_scripts':
-            ['acidfile=acidfile:main']
+#        'console_scripts':
+#            ['acidfile=acidfile:main']
     }
 )

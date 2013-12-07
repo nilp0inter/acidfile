@@ -15,11 +15,15 @@ from time import time
 import hmac
 import os
 import struct
+import sys
 
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+if sys.version_info.major == 2:
+    try:
+        from cStringIO import StringIO
+    except ImportError:
+        from StringIO import StringIO
+elif sys.version_info.major == 3:
+    from io import BytesIO as StringIO
 
 class ACIDFile(object):
     """
@@ -33,7 +37,7 @@ class ACIDFile(object):
     """
     _mac_size = 16
     _timestamp_size = 8
-    def __init__(self, name, mode='r', key='ACIDFILE', copies=1,
+    def __init__(self, name, mode='r', key=b'ACIDFILE', copies=1,
                  *args, **kwargs):
 
         if copies < 1:

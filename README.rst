@@ -1,7 +1,6 @@
 acidfile
 ========
 
-
 `acidfile` module provides the ACIDFile object. This object can be used as a
 regular file object but instead of write one copy of the data, it will write
 several copies to disk in an ACID manner.
@@ -22,6 +21,7 @@ Latest stable version can be found on `PyPI`_.
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Number of PyPI downloads
 
+`acidfile` is compatible with python 2.7 and 3.3
 
 Installation
 ------------
@@ -36,7 +36,6 @@ Latest version can be installed via `pip`
 Running the tests
 -----------------
 
-
 Clone this repository and install the develop requirements.
 
 .. code-block:: bash
@@ -45,11 +44,12 @@ Clone this repository and install the develop requirements.
    $ cd acidfile
    $ pip install -r requirements/develop.txt
    $ python setup.py develop
-   $ behave tests/features
+   $ tox
 
 
 Usage examples
 --------------
+
 
 Basic usage
 +++++++++++
@@ -74,11 +74,11 @@ signature.
    >>> myfile.close()
 
 If any of the files is damaged due to turning off without proper shutdown or
-disk failure it will be detected by the internal HMAC and the other data would
-be used instead.
+disk failure, manipulation, etc. It will be detected by the internal HMAC and
+the other's file data would be used instead.
 
-.. note:: If you want to read an `acidfile`, never pass the full path of the real
-   file, instead use the file name that you use in the creation step.
+.. note:: If you want to read an `acidfile`, never pass the full path of the
+   real file, instead use the file name that you use in the creation step.
 
    | ✗ ACIDFile('/tmp/myfile.txt.0', 'r') 
    | ✗ ACIDFile('/tmp/myfile.txt.1', 'r')  

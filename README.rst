@@ -11,7 +11,17 @@ This algorithm was explained by `Elvis Pfützenreuter`_ in his blog post
 
 Latest stable version can be found on `PyPI`_.
 
-.. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop:target:https://travis-ci.org/nilp0inter/acidfile
+.. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop
+    :target: https://travis-ci.org/nilp0inter/acidfile
+
+.. image:: https://pypip.in/v/acidfile/badge.png 
+    :target: https://pypi.python.org/pypi/acidfile
+    :alt: Latest PyPI version
+
+.. image:: https://pypip.in/d/acidfile/badge.png
+    :target: https://pypi.python.org/pypi/acidfile
+    :alt: Number of PyPI downloads
+
 
 Installation
 ------------
@@ -69,9 +79,10 @@ be used instead.
 
 .. note:: If you want to read an `acidfile`, never pass the full path of the real
    file, instead use the file name that you use in the creation step.
-     - BAD: ACIDFile('/tmp/myfile.txt.0', 'r') 
-     - BAD: ACIDFile('/tmp/myfile.txt.1', 'r')  
-     - GOOD: ACIDFile('/tmp/myfile.txt', 'r')
+
+   | ✗ ACIDFile('/tmp/myfile.txt.0', 'r') 
+   | ✗ ACIDFile('/tmp/myfile.txt.1', 'r')  
+   | ✓ ACIDFile('/tmp/myfile.txt', 'r')
 
 
 Context manager

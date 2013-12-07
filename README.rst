@@ -31,8 +31,7 @@ Clone this repository and install the develop requirements.
    $ cd acidfile
    $ pip install -r requirements/develop.txt
    $ python setup.py develop
-   $ cd tests 
-   $ lettuce
+   $ behave tests/features
 
 
 Usage examples

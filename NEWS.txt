@@ -6,6 +6,13 @@
 News
 ====
 
+1.1.0
+-----
+
++ Python 3 support.
++ Changed testing framework to `behave` because python 3 support.
++ Using `tox` for multiple python version testing.
+
 1.0.0
 -----
 

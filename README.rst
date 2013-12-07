@@ -10,6 +10,19 @@ This algorithm was explained by `Elvis Pfützenreuter`_ in his blog post
 
 Latest stable version can be found on `PyPI`_.
 
+.. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop
+    :target: https://travis-ci.org/nilp0inter/acidfile
+
+.. image:: https://pypip.in/v/acidfile/badge.png 
+    :target: https://pypi.python.org/pypi/acidfile
+    :alt: Latest PyPI version
+
+.. image:: https://pypip.in/d/acidfile/badge.png
+    :target: https://pypi.python.org/pypi/acidfile
+    :alt: Number of PyPI downloads
+
+`acidfile` is compatible with python 2.7 and 3.3
+
 Installation
 ------------
 
@@ -31,12 +44,12 @@ Clone this repository and install the develop requirements.
    $ cd acidfile
    $ pip install -r requirements/develop.txt
    $ python setup.py develop
-   $ cd tests 
-   $ lettuce
+   $ tox
 
 
 Usage examples
 --------------
+
 
 Basic usage
 +++++++++++
@@ -46,7 +59,7 @@ Basic usage
    >>> from acidfile import ACIDFile
       
    >>> myfile = ACIDFile('/tmp/myfile.txt', 'w')
-   >>> myfile.write('Some important data.')
+   >>> myfile.write(b'Some important data.')
    >>> myfile.close()
 
 At the close invocation two copies will be written to disk: *myfile.txt.0* and
@@ -61,14 +74,15 @@ signature.
    >>> myfile.close()
 
 If any of the files is damaged due to turning off without proper shutdown or
-disk failure it will be detected by the internal HMAC and the other data would
-be used instead.
+disk failure, manipulation, etc. It will be detected by the internal HMAC and
+the other's file data would be used instead.
 
-.. note:: If you want to read an `acidfile`, never pass the full path of the real
-   file, instead use the file name that you use in the creation step.
-     - BAD: ACIDFile('/tmp/myfile.txt.0', 'r') 
-     - BAD: ACIDFile('/tmp/myfile.txt.1', 'r')  
-     - GOOD: ACIDFile('/tmp/myfile.txt', 'r')
+.. note:: If you want to read an `acidfile`, never pass the full path of the
+   real file, instead use the file name that you use in the creation step.
+
+   | ✗ ACIDFile('/tmp/myfile.txt.0', 'r') 
+   | ✗ ACIDFile('/tmp/myfile.txt.1', 'r')  
+   | ✓ ACIDFile('/tmp/myfile.txt', 'r')
 
 
 Context manager
@@ -79,7 +93,7 @@ ACIDFile can (and should) be used as a regular context manager:
 .. code-block:: python
 
    >>> with ACIDFile('/tmp/myfile.txt', 'w') as myfile:
-   ...     myfile.write('Some important data.')
+   ...     myfile.write(b'Some important data.')
 
 
 Number of copies

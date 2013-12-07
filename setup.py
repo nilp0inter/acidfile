@@ -5,12 +5,10 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 
-
-version = '1.0.0'
+version = '1.1.0'
 
 install_requires = [
 ]
-
 
 setup(name='acidfile',
     version=version,
@@ -22,6 +20,7 @@ setup(name='acidfile',
       'Intended Audience :: Developers',
       'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
       'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3.3',
       'Topic :: Software Development :: Embedded Systems',
       'Topic :: System',
     ],

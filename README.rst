@@ -1,6 +1,7 @@
 acidfile
 ========
 
+
 `acidfile` module provides the ACIDFile object. This object can be used as a
 regular file object but instead of write one copy of the data, it will write
 several copies to disk in an ACID manner.
@@ -9,6 +10,8 @@ This algorithm was explained by `Elvis Pfützenreuter`_ in his blog post
 `Achieving ACID transactions with common files`_.
 
 Latest stable version can be found on `PyPI`_.
+
+.. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop:target:https://travis-ci.org/nilp0inter/acidfile
 
 Installation
 ------------
@@ -22,6 +25,7 @@ Latest version can be installed via `pip`
 
 Running the tests
 -----------------
+
 
 Clone this repository and install the develop requirements.
 

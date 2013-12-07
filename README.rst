@@ -59,7 +59,7 @@ Basic usage
    >>> from acidfile import ACIDFile
       
    >>> myfile = ACIDFile('/tmp/myfile.txt', 'w')
-   >>> myfile.write('Some important data.')
+   >>> myfile.write(b'Some important data.')
    >>> myfile.close()
 
 At the close invocation two copies will be written to disk: *myfile.txt.0* and
@@ -93,7 +93,7 @@ ACIDFile can (and should) be used as a regular context manager:
 .. code-block:: python
 
    >>> with ACIDFile('/tmp/myfile.txt', 'w') as myfile:
-   ...     myfile.write('Some important data.')
+   ...     myfile.write(b'Some important data.')
 
 
 Number of copies

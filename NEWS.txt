@@ -6,6 +6,14 @@
 News
 ====
 
+1.2.0
+-----
+
++ Python 2.6 support.
++ Added Python 3.2 and pypy to tox tests.
++ Added flattr button :D
+* Fixed flake8 and pylint warnings.
+
 1.1.0
 -----
 

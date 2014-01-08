@@ -21,12 +21,12 @@ import os
 import struct
 import sys
 
-if sys.version_info.major == 2:
+if (2, 6) <= sys.version_info < (3, ):
     try:
         from cStringIO import StringIO
     except ImportError:
         from StringIO import StringIO
-elif sys.version_info.major == 3:
+elif sys.version_info >= (3, ):
     from io import BytesIO as StringIO
 
 

@@ -13,7 +13,7 @@ Latest stable version can be found on `PyPI`_.
 .. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop
     :target: https://travis-ci.org/nilp0inter/acidfile
 
-.. image:: https://pypip.in/v/acidfile/badge.png 
+.. image:: https://pypip.in/v/acidfile/badge.png
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Latest PyPI version
 
@@ -21,7 +21,13 @@ Latest stable version can be found on `PyPI`_.
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Number of PyPI downloads
 
-`acidfile` is compatible with python 2.7 and 3.3
+`acidfile` is compatible with python 2.6, 2.7, 3.2, 3.3 and pypy
+
+Contribute:
+
+.. image:: http://api.flattr.com/button/flattr-badge-large.png
+    :target: https://flattr.com/submit/auto?user_id=nilp0inter&url=https://github.com/nilp0inter/acidfile&title=acidfile&language=&tags=github&category=software
+    :alt: Flattr this git repo
 
 Installation
 ------------
@@ -57,7 +63,7 @@ Basic usage
 .. code-block:: python
 
    >>> from acidfile import ACIDFile
-      
+
    >>> myfile = ACIDFile('/tmp/myfile.txt', 'w')
    >>> myfile.write(b'Some important data.')
    >>> myfile.close()
@@ -80,8 +86,8 @@ the other's file data would be used instead.
 .. note:: If you want to read an `acidfile`, never pass the full path of the
    real file, instead use the file name that you use in the creation step.
 
-   | ✗ ACIDFile('/tmp/myfile.txt.0', 'r') 
-   | ✗ ACIDFile('/tmp/myfile.txt.1', 'r')  
+   | ✗ ACIDFile('/tmp/myfile.txt.0', 'r')
+   | ✗ ACIDFile('/tmp/myfile.txt.1', 'r')
    | ✓ ACIDFile('/tmp/myfile.txt', 'r')
 
 

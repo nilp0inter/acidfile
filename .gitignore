@@ -10,3 +10,4 @@ tmp
 build
 dist
 .tox
+docs/.ipynb_checkpoints/

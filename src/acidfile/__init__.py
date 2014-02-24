@@ -80,6 +80,8 @@ class ACIDFile(object):
                             'd', inner_file.read(self._timestamp_size))
                         timestamps.append((timestamp[0], subfile))
 
+            print(self._filenames)
+            print(timestamps)
             for _, subfile in sorted(timestamps, reverse=True):
                 if os.path.exists(subfile):
                     with open(subfile, 'rb') as inner_file:
@@ -108,17 +110,26 @@ class ACIDFile(object):
         if self.loaded:
             self._file.seek(0)
             raw_content = self._file.read()
+            self._file.close()
+            failed = []
             for subfile in self._filenames:
                 now = time()
                 timestamp = struct.pack('d', now)
                 content = timestamp + raw_content
                 signature = hmac.new(self.key, content).digest()
-                with open(subfile, 'wb') as inner_file:
-                    inner_file.write(signature)
-                    inner_file.write(content)
-                    inner_file.flush()
-                    os.fsync(inner_file.fileno())
-        self._file.close()
+                try:
+                    with open(subfile, 'wb') as inner_file:
+                        inner_file.write(signature)
+                        inner_file.write(content)
+                        inner_file.flush()
+                        os.fsync(inner_file.fileno())
+                except Exception as err:
+                    failed.append((subfile, err))
+            if len(failed) == len(self._filenames):
+                raise OSError('Failed to write all inner-files %r' %
+                              failed)
+        else:
+            self._file.close()
 
     def __enter__(self):
         """Return self as context."""

@@ -2,17 +2,16 @@
 
 import os
 from glob import glob
-import tempfile
-from itertools import chain
-
-from acidfile import ACIDFile
 
 from behave import *
 
+from acidfile import ACIDFile
 
 @given('an example acidfile')
 def given_an_example_acidfile(context):
-    context.example_acidfile = ACIDFile(context.example_filename, 'w')
+    context.copies = 1
+    context.example_acidfile = ACIDFile(context.example_filename, 'w',
+                                        copies=1)
 
 @when('I write some data')
 def when_i_write_some_data(context):
@@ -43,7 +42,8 @@ def and_i_remove_one_of_the_inner_files(context):
 
 @when('I open it again')
 def and_i_open_it_again(context):
-    context.example_acidfile = ACIDFile(context.example_filename, 'r')
+    context.example_acidfile = ACIDFile(context.example_filename, 'r',
+                                        copies=context.copies)
 
 @when('I remove all the inner files')
 def and_i_remove_all_the_inner_files(context):
@@ -115,8 +115,9 @@ def acidfile_with_no_copies_is_impossible(context):
 
 @given('an example acidfile with {number} copies')
 def given_an_example_acidfile_with_number_copies(context, number):
-    number = int(number)
-    context.example_acidfile = ACIDFile(context.example_filename, 'w', copies=number)
+    context.copies = int(number)
+    context.example_acidfile = ACIDFile(context.example_filename,
+                                        'w', copies=int(number))
 
 @then('I can see {number} inner-files')
 def then_i_can_see_number_inner_files(context, number):
@@ -124,3 +125,22 @@ def then_i_can_see_number_inner_files(context, number):
     for i in range(number):
         assert os.path.exists(context.example_filename + '.%s' % i), "File idx %s does not exists." % i
 
+@given('the following fail schema {schema}')
+def the_following_fail_schema(context, schema):
+    context.fail_schema = []
+    for file_idx, can_read in enumerate(schema.split()):
+        if can_read != 'O':
+            inner_filename = context.example_filename + '.%s' % file_idx
+            context.fail_schema.append(inner_filename)
+
+
+@then('I close the file and get an OSError')
+def i_close_the_file_and_get_an_oserror(context):
+    try:
+        context.example_acidfile.close()
+    except OSError:
+        assert True
+    except:
+        assert False
+    else:
+        assert False

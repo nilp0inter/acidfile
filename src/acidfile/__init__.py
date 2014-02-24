@@ -80,8 +80,6 @@ class ACIDFile(object):
                             'd', inner_file.read(self._timestamp_size))
                         timestamps.append((timestamp[0], subfile))
 
-            print(self._filenames)
-            print(timestamps)
             for _, subfile in sorted(timestamps, reverse=True):
                 if os.path.exists(subfile):
                     with open(subfile, 'rb') as inner_file:

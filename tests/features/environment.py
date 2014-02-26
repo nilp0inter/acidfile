@@ -17,10 +17,6 @@ def before_scenario(context, scenario):
     context.random_data = os.urandom(1024)
     context.auxiliary_random_data = os.urandom(1024)
 
-    def no_fail(*args, **kwargs):
-        return open(*args, **kwargs)
-    context.fail_schema = no_fail
-
 
 def after_scenario(context, scenario):
     for subfile in chain(glob(context.example_filename + '*'),

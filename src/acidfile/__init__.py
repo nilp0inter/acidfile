@@ -46,7 +46,13 @@ class ACIDFile(object):
     _timestamp_size = 8
 
     def __init__(self, name, mode='r', key=b'ACIDFILE', copies=1):
+        """
+        :name: Virtual file path.
+        :mode: Open mode.
+        :key: HMAC key.
+        :copies: Number of inner-files.
 
+        """
         if copies < 1:
             raise ValueError('copies must be greater than 0')
 

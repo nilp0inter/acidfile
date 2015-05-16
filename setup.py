@@ -10,7 +10,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(HERE, 'README.rst'), encoding='utf-8').read()
 NEWS = open(os.path.join(HERE, 'NEWS.txt'), encoding='utf-8').read()
 
-VERSION = '1.2.0'
+VERSION = '1.2.1'
 
 setup(name='acidfile',
       version=VERSION,
@@ -24,6 +24,7 @@ setup(name='acidfile',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3.2',
           'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Topic :: Software Development :: Embedded Systems',
           'Topic :: System :: Archiving',

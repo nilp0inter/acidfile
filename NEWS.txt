@@ -6,6 +6,15 @@
 News
 ====
 
+
+1.2.1
+-----
+
+* Using io.open in setup.py to read README and NEWS. This fix some
+  problems installing the package.
++ Python 3.4 support.
+
+
 1.2.0
 -----
 
@@ -14,6 +23,7 @@ News
 + Added flattr button :D
 * Fixed flake8 and pylint warnings.
 
+
 1.1.0
 -----
 
@@ -21,11 +31,13 @@ News
 + Changed testing framework to `behave` because python 3 support.
 + Using `tox` for multiple python version testing.
 
+
 1.0.0
 -----
 
 * First stable release.
 + Documentation.
+
 
 0.0.1
 -----

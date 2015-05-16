@@ -21,7 +21,7 @@ Latest stable version can be found on `PyPI`_.
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Number of PyPI downloads
 
-`acidfile` is compatible with python 2.6, 2.7, 3.2, 3.3 and pypy
+`acidfile` is compatible with python 2.6, 2.7, 3.2, 3.3, 3.4 and pypy
 
 Contribute:
 

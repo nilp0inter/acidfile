@@ -4,10 +4,11 @@ Acidfile setup script.
 """
 from setuptools import setup, find_packages
 import os
+from io import open
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(HERE, 'README.rst')).read()
-NEWS = open(os.path.join(HERE, 'NEWS.txt')).read()
+README = open(os.path.join(HERE, 'README.rst'), encoding='utf-8').read()
+NEWS = open(os.path.join(HERE, 'NEWS.txt'), encoding='utf-8').read()
 
 VERSION = '1.2.0'
 

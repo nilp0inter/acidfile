@@ -11,3 +11,8 @@ build
 dist
 .tox
 docs/.ipynb_checkpoints/
+
+.coverage
+htmlcov/
+
+coverage.xml

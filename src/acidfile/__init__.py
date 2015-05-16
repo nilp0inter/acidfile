@@ -21,12 +21,12 @@ import os
 import struct
 import sys
 
-if (2, 6) <= sys.version_info < (3, ):
+if (2, 6) <= sys.version_info < (3, ):  # pragma: no cover
     try:
         from cStringIO import StringIO
     except ImportError:
         from StringIO import StringIO
-elif sys.version_info >= (3, ):
+elif sys.version_info >= (3, ):  # pragma: no cover
     from io import BytesIO as StringIO
 
 
@@ -46,7 +46,13 @@ class ACIDFile(object):
     _timestamp_size = 8
 
     def __init__(self, name, mode='r', key=b'ACIDFILE', copies=1):
+        """
+        :name: Virtual file path.
+        :mode: Open mode.
+        :key: HMAC key.
+        :copies: Number of inner-files.
 
+        """
         if copies < 1:
             raise ValueError('copies must be greater than 0')
 

@@ -13,11 +13,11 @@ Latest stable version can be found on `PyPI`_.
 .. image:: https://travis-ci.org/nilp0inter/acidfile.png?branch=develop
     :target: https://travis-ci.org/nilp0inter/acidfile
 
-.. image:: https://pypip.in/v/acidfile/badge.png
+.. image:: https://img.shields.io/pypi/v/acidfile.svg
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Latest PyPI version
 
-.. image:: https://pypip.in/d/acidfile/badge.png
+.. image:: https://img.shields.io/pypi/dm/acidfile.svg
     :target: https://pypi.python.org/pypi/acidfile
     :alt: Number of PyPI downloads
 

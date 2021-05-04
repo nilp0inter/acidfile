@@ -87,6 +87,10 @@ def and_i_close_the_auxiliary_file(context):
 @when('replace example inner-file number {number} with auxiliary one')
 def and_replace_example_inner_file_with_auxiliary_one(context, number):
     idx = int(number)
+    try:
+        os.unlink(context.example_filename + '.%s' % number)
+    except FileNotFoundError:
+        pass
     os.rename(context.auxiliary_filename + '.%s' % number,
               context.example_filename + '.%s' % number)
 

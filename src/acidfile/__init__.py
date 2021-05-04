@@ -91,7 +91,7 @@ class ACIDFile(object):
                     with open(subfile, 'rb') as inner_file:
                         file_signature = inner_file.read(self._mac_size)
                         content = inner_file.read()
-                        actual_signature = hmac.new(self.key, content).digest()
+                        actual_signature = hmac.new(self.key, content, digestmod='MD5').digest()
                         if actual_signature == file_signature:
                             self._file.write(content[self._timestamp_size:])
                             self._file.seek(0)
@@ -118,7 +118,7 @@ class ACIDFile(object):
                 now = time()
                 timestamp = struct.pack('d', now)
                 content = timestamp + raw_content
-                signature = hmac.new(self.key, content).digest()
+                signature = hmac.new(self.key, content, digestmod='MD5').digest()
                 with open(subfile, 'wb') as inner_file:
                     inner_file.write(signature)
                     inner_file.write(content)

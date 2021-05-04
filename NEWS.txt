@@ -6,6 +6,12 @@
 News
 ====
 
+1.2.2
+-----
+
+* Add support to Python 3.5 - 3.9
+* Fix missing parameter in hmac
+
 
 1.2.1
 -----
